@@ -36,11 +36,7 @@ const LoginPage: React.FC = () => {
                     fullWidth={true}
                     helperText={"Enter You name"} />
             </div>
-            <TextField onChange={event => setName(event.target.value)} value={name} label={"Name"}
-                    variant={'outlined'}
-                    fullWidth={true}
-                    helperText={"Enter You name"} />
-
+           
             <div  className='btnDiv'><button  className='btn' onClick={handleSubmit}>Submit</button> </div>
         </div>
 

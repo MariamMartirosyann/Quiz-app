@@ -28,41 +28,47 @@ const Quiz: React.FC = () => {
 
 
     const onClickVariant = (index: number) => {
-        if(step<questions.length){
+        if (step < questions.length) {
             setStep(step + 1)
             setScore(score + 100);
         }
-        
-    }
 
+    }
+ const handleStartAgain =(event:any)=>{
+ setStep(0)
+ setScore(0)
+ }
 
     return (
-        <div className='app'>{step !== questions.length ? (
-            <>
-
-                <div className='questionSection'>
-
-                    <div className='questionCount'>
-
-                        <span>Question {step + 1}</span>/{questions.length}
-                    </div>
-                    <div className='questionText'>{questions[step].title}</div>
-                </div>
-
-                <div className='answerSection'>
-                    {question.variants.map((text, index) => <button key={text} onClick={() => onClickVariant(index)}>{text}</button>)}
-
-                    <div className='questionText'>
-                        You current score is {score}.
-                    </div>
-                </div>
-            </>
-
-        ):(
-            <div className='score'>
-                {name} your score is {score}, from {questions.length} questions
+        <div className='main'>
+            {step !== questions.length ? (<><div className="welcome"> {questions[step].title}</div>
+            <div className='qustions'>
+                {question.variants.map((text, index) => <button key={text} onClick={() => onClickVariant(index)} className="question">{text}</button>)}
             </div>
-        )  }</div>
+            <div className='info'>
+                <div>Score: {score}</div>
+                <div>Question {step + 1}/{questions.length}</div>
+
+            </div></>):(<> <div className="welcome">Quiz is over </div>
+
+          <div className='finalInfo'> {name} your score is {score}, from {questions.length} questions</div>
+          <div className='playAgain' onClick={handleStartAgain}> Play again</div></>)  }
+
+{/*          Questions
+            <div className="welcome"> {questions[step].title}</div>
+            <div className='qustions'>
+                {question.variants.map((text, index) => <button key={text} onClick={() => onClickVariant(index)} className="question">{text}</button>)}
+            </div>
+            <div className='info'>
+                <div>Score: {score}</div>
+                <div>Question {step + 1}/{questions.length}</div>
+
+            </div> */}
+       {/* <div className="welcome">Quiz is over </div>
+
+          <div className='finalInfo'> {name} your score is {score}, from {questions.length} questions</div>
+          <div className='playAgain'> Play again</div> */}
+        </div>
     )
 }
 

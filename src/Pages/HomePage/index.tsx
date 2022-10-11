@@ -14,7 +14,7 @@ const Home: React.FC = () => {
   return (
  
     <div className='main'>
-      <div className='welcome'> Welcome to Quiz </div>
+      <div className='welcomeTitle'> Welcome to Quiz </div>
       <div className='btnDiv'><button  className='btn' onClick={handleStart}>Start Quiz</button></div>
     
     
