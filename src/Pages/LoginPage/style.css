@@ -1,0 +1,39 @@
+.inputDiv {
+  background: white;
+  margin-bottom: 30px;
+}
+
+.inputDiv .css-wb57ya-MuiFormControl-root-MuiTextField-root {
+  background: white;
+}
+
+.inputDiv .css-1wc848c-MuiFormHelperText-root {
+  background: white;
+}
+
+.inputDiv .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+  background: white;
+
+}
+.inputDiv .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  background: white;
+}
+.inputDiv .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
+  background: white;
+}
+.inputDiv .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline{
+border-radius: 50px;
+border: 2px solid blueviolet;
+
+}
+.inputDiv .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline{
+  border-color: blueviolet;
+
+}
+.inputDiv .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
+  color:red;
+}
+
+.inputDiv .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  color: black;
+}

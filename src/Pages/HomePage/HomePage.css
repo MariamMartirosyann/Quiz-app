@@ -1,0 +1,40 @@
+/* *{
+    background-image: linear-gradient(to right,rgb(163, 77, 249), rgb(71, 64, 64));
+} */
+
+.main{
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+   width: 500px;
+   height: 600px;
+   margin:auto;
+   background: white;
+   margin-top: 50px;
+   border:2px solid black;
+   border-radius: 25px;
+
+}
+.welcome{
+    background: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 60px;
+}
+.btnDiv{
+    background: white;
+    
+  
+}
+.btn{
+    background: white;
+    width: 210px;  
+    height: 50px; 
+    border-radius: 50px;
+    border: 2px solid  blueviolet;
+  
+}
+.btn:hover{
+    background:blueviolet;
+    color:white
+}
