@@ -18,18 +18,21 @@ const Quiz: React.FC = () => {
   console.log("currentAnswerIndex", currentAnswerIndex);
 
   const onClickVariant = (index: number) => {
-    if (index === question.correct) {return console.log("green");}
-    else {return console.log("red")};
-
     if (step < questions.length) {
       setCurrentAnswerIndex(index);
 
       if (index === question.correct) {
         setClicked(true)
+        console.log("green")
         return setScore(score + 100);
+        
       }
-  
+     
+      else {return console.log("red")};
     }
+   
+
+   
     
   };
   const handleNext = () => {
@@ -69,7 +72,7 @@ const Quiz: React.FC = () => {
               </button>
             ))}
             <button
-            disabled={isclicked}
+            disabled={!isclicked}
               onClick={handleNext}
               className={"next"}
             >
