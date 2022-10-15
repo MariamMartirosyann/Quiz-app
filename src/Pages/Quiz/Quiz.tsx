@@ -10,7 +10,7 @@ const Quiz: React.FC = () => {
 
   const [score, setScore] = useState<number>(0);
   const [step, setStep] = useState<number>(0);
-  const [clicked, setClicked] = useState<boolean>(false);
+  const [isclicked, setClicked] = useState<boolean>(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<any>(0);
   const [currentAnswerIndex, setCurrentAnswerIndex] = useState<number>();
 
@@ -18,17 +18,19 @@ const Quiz: React.FC = () => {
   console.log("currentAnswerIndex", currentAnswerIndex);
 
   const onClickVariant = (index: number) => {
+    if (index === question.correct) {return console.log("green");}
+    else {return console.log("red")};
+
     if (step < questions.length) {
       setCurrentAnswerIndex(index);
 
       if (index === question.correct) {
+        setClicked(true)
         return setScore(score + 100);
       }
-
-      
+  
     }
-    if (currentAnswerIndex === question.correct) return console.log("green");
-    return console.log("red");
+    
   };
   const handleNext = () => {
     const nextQuestion = step + 1;
@@ -61,12 +63,13 @@ const Quiz: React.FC = () => {
               <button
                 key={text}
                 onClick={() => onClickVariant(index)}
-                className={clicked && index ===question.correct? "correct": "question"}
+                className={isclicked && index ===question.correct? "correct": "question"}
               >
                 {text}
               </button>
             ))}
             <button
+            disabled={isclicked}
               onClick={handleNext}
               className={"next"}
             >
@@ -88,7 +91,7 @@ const Quiz: React.FC = () => {
             {" "}
             {name} your score is {score}, from {questions.length} questions
           </div>
-          <div className="playAgain" onClick={handleStartAgain}>
+          <div   className="playAgain" onClick={handleStartAgain}>
             {" "}
             Play again
           </div>
