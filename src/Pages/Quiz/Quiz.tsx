@@ -24,11 +24,12 @@ const Quiz: React.FC = () => {
       if (index === question.correct) {
         setClicked(true)
         console.log("green")
-        return setScore(score + 100);
+      return setScore(score + 100);
         
       }
      
-      else {return console.log("red")};
+      else {
+        return console.log("red")};
     }
    
 
@@ -38,6 +39,7 @@ const Quiz: React.FC = () => {
   const handleNext = () => {
     const nextQuestion = step + 1;
     setStep(step + 1);
+    setClicked(!isclicked)
     setCurrentQuestionIndex(nextQuestion);
   
   };
@@ -66,7 +68,7 @@ const Quiz: React.FC = () => {
               <button
                 key={text}
                 onClick={() => onClickVariant(index)}
-                className={isclicked && index ===question.correct? "correct": "question"}
+                className={` ${isclicked && index ===question.correct? "correct":"question"} `}
               >
                 {text}
               </button>
