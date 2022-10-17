@@ -31,7 +31,5 @@ export const questions:IQuestion[]=[
         correct:2,
         incorrect:[0,1,3]
     },
-
-
 ]
 

@@ -1,48 +1,44 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import TextField from "@mui/material/TextField";
-import { addName } from '../../features/name/nameSlice';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import "./style.css"
+import TextField from "@mui/material/TextField";
+import { addName } from "../../features/name/nameSlice";
+import "./style.css";
 
 const LoginPage: React.FC = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [name, setName] = useState<string>("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [name, setName] = useState<string>("");
 
-    /*const handleChange = (e: { target: { value: e: FormEvent<HTMLFormElement>; } }) => {
-        setName(e.target.value)
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    dispatch(addName(name));
+    navigate("/quiz");
+    setName("");
+  };
 
-    }
-    console.log(name)*/
+  return (
+    <div className="main">
+      <div className="welcome">Please enter your username</div>
 
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        console.log(name);
-        dispatch(addName(name));
-        navigate("/quiz");
-        setName("")
-    }
+      <div className="inputDiv">
+        <TextField
+          onChange={(event) => setName(event.target.value)}
+          value={name}
+          label={"Name"}
+          variant={"outlined"}
+          fullWidth={true}
+          helperText={"Enter You name"}
+        />
+      </div>
 
-    return (
-        <div className="main">
+      <div className="btnDiv">
+        <button className="btn" onClick={handleSubmit}>
+          Submit
+        </button>{" "}
+      </div>
+    </div>
+  );
+};
 
-            <div className="welcome">Please enter your username</div>
-
-            <div className='inputDiv'>
-                <TextField onChange={event => setName(event.target.value)} value={name} label={"Name"}
-                    variant={'outlined'}
-                    fullWidth={true}
-                    helperText={"Enter You name"} />
-            </div>
-           
-            <div  className='btnDiv'><button  className='btn' onClick={handleSubmit}>Submit</button> </div>
-        </div>
-
-
-
-    )
-}
-
-export default LoginPage
+export default LoginPage;
